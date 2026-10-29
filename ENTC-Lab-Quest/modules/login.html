@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in · ENTC Lab Quest</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body data-auth-page>
+  <main class="card auth-card">
+    <h1>ENTC Lab Quest</h1>
+    <p class="muted">Choose your account type to continue.</p>
+    <div class="login-roles" role="group" aria-label="Choose login type">
+      <button class="role-choice active" type="button" data-role="student" aria-pressed="true">Student Login</button>
+      <button class="role-choice" type="button" data-role="teacher" aria-pressed="false">Faculty Login</button>
+      <button class="role-choice" type="button" data-role="admin" aria-pressed="false">Admin Login</button>
+    </div>
+    <p id="roleDescription" class="muted">Sign in or create a student account.</p>
+    <p id="authMessage" class="notice hidden" role="status"></p>
+    <form id="authForm">
+      <input id="authMode" type="hidden" value="login">
+      <input id="selectedRole" type="hidden" value="student">
+      <div id="nameField" class="field hidden"><label for="fullName">Full name</label><input id="fullName" autocomplete="name"></div>
+      <div id="sectionField" class="field hidden">
+        <label for="section">Student section</label>
+        <select id="section"><option value="">Not assigned</option><option value="A">Section A</option><option value="B">Section B</option><option value="C">Section C</option></select>
+      </div>
+      <div class="field"><label for="email">Email</label><input id="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required></div>
+      <button id="authSubmit" class="primary" type="submit">Sign in</button>
+    </form>
+    <button id="authToggle" class="soft" type="button" style="margin-top:12px">Create a student account</button>
+    <p class="muted">Faculty and admin access must be assigned by an administrator. If sign-up does not sign you in immediately, turn off Confirm email in Supabase Auth settings.</p>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="backend.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

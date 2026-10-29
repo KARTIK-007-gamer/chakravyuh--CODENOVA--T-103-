@@ -1,0 +1,5 @@
+.account-table { overflow-x: auto; }
+.account-table table { min-width: 620px; }
+.account-table select { min-width: 120px; }
+.account-table button { padding: 8px 10px; }
+.account-table th { color: #49326e; background: #f2edf8; }
